@@ -1,18 +1,20 @@
 import cors from 'cors';
 import express, { Express, Request, Response } from 'express';
 import { swaggerJSON } from './docs/swagger';
-import {
-    pageNotFound,
-    errorAPIMiddleware,
-} from './middleware/error-api.middleware';
+import { exceptionHandlerMiddleware } from './middleware/exception-handler.middleware';
 import morganMiddleware from './middleware/morgan.middleware';
 import * as swaggerUi from 'swagger-ui-express';
+import { pageNotFoundMiddleware } from './middleware/page-not-found.middleware';
+import 'express-async-errors';
+import helmet from 'helmet';
 
 const app: Express = express();
 
 app.use(express.json());
 
 app.use(cors());
+
+app.use(helmet());
 
 // Middlewares
 app.use(morganMiddleware);
@@ -31,9 +33,9 @@ app.use(
     // Rota exportada
 );
 
-app.use(pageNotFound);
+app.use(pageNotFoundMiddleware);
 
 // Para Funções ASSÍNCRONAS (async) PRECISA usar a lib 'express-async-errors' !! <<
-app.use(errorAPIMiddleware);
+app.use(exceptionHandlerMiddleware);
 
 export { app };
