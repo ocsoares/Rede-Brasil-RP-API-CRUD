@@ -1,17 +1,21 @@
 import 'dotenv/config';
-// import mongooseConnection from './config/database'; TROCAR o DB !!!
 import Logger from './config/logs';
 import { app } from './app';
+import { PrismaService } from './repositories/implementations/prisma/prisma-client.service';
 
 const host = process.env.HOST_URL;
 const port = process.env.HOST_PORT;
 
 app.listen(port, async () => {
-    // await mongooseConnection(); TROCAR o DB !!!
+    await PrismaService.connect();
 
     Logger.info(`Servidor rodando remotamente em ${host}:${port}`);
 
     process.env.NODE_ENV
         ? console.log(`Servidor rodando em produção na porta ${port} !`)
         : '';
+});
+
+app.on('close', async () => {
+    await PrismaService.disconnect();
 });
