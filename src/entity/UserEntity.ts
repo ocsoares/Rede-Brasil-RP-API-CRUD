@@ -1,4 +1,5 @@
 export class UserEntity {
-    readonly name: string;
+    readonly fullName: string;
+    readonly email: string;
     readonly password: string;
 }
