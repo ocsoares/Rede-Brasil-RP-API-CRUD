@@ -7,6 +7,6 @@ export class UserAlreadyExistsByEmailException extends BaseException {
     constructor() {
         super(UserAlreadyExistsByEmailException.EXCEPTION_MESSAGE, 400);
 
-        this.name = "UserAlreadyExistsByEmailException";
+        this.name = "Bad Request";
     }
 }
