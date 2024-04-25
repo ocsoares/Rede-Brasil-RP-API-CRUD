@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { exampleValidation } from "../middleware/example.validation";
+import { createUserValidation } from "../middleware/user/create-user.validation";
 import { handleValidation } from "../middleware/handle.validation";
 import { CreateUserController } from "../use-cases/user/create-user/create-user.controller";
 
@@ -8,7 +8,7 @@ const createUserController = new CreateUserController();
 
 crudRoute.post(
     "/user",
-    exampleValidation(),
+    createUserValidation(),
     handleValidation,
     createUserController.handle,
 );

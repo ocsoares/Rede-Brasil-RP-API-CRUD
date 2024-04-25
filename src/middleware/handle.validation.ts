@@ -15,10 +15,7 @@ export const handleValidation = (
 
     const getErrors: object[] = [];
 
-    // VER se isso aqui tá funcionando IGUAL ao de Baixo !!!
     errors.array().map((error) => getErrors.push([error.msg]));
-
-    // errors.array().map((error) => getErrors.push({ [error.param]: error.msg }));
 
     return res.status(StatusCodes.BAD_REQUEST).json({
         errors: getErrors,
