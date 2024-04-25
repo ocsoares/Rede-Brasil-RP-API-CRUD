@@ -1,3 +1,3 @@
 export interface IService<P, R> {
-    execute(parameter: P): Promise<R>;
+    execute(parameter?: P): Promise<R>;
 }
