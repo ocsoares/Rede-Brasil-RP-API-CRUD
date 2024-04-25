@@ -11,8 +11,6 @@ export class FindUserController implements IController {
 
         const { id } = req.params;
 
-        console.log("ID:", id);
-
         const userFound = await this.findUserService.execute(id);
 
         return res.json(userFound);
