@@ -1,8 +1,8 @@
-import { UserEntity } from "src/entity/UserEntity";
-import { UserResponse } from "src/use-cases/user/responses/UserResponse";
+import { UserEntity } from "../../../entity/UserEntity";
+import { UserResponse } from "../../../use-cases/user/responses/UserResponse";
 
 export class UserMapper {
-    toResponse(userEntity: UserEntity): UserResponse {
+    static toResponse(userEntity: UserEntity): UserResponse {
         return new UserResponse(userEntity.fullName, userEntity.email);
     }
 }
