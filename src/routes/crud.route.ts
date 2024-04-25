@@ -5,6 +5,8 @@ import { CreateUserController } from "../use-cases/user/create-user/create-user.
 import { FindUserController } from "../use-cases/user/find-user/find-user.controller";
 import { FindAllUsersController } from "../use-cases/user/find-all-users/find-all-users.controller";
 import { DeleteUserController } from "../use-cases/user/delete-user/delete-user.controller";
+import { UpdateUserController } from "../use-cases/user/update-user/update-user.controller";
+import { updateUserValidation } from "../middleware/user/update-user.validation";
 
 const crudRoute: Router = Router();
 
@@ -12,6 +14,7 @@ const createUserController = new CreateUserController();
 const findUserController = new FindUserController();
 const findAllUsersController = new FindAllUsersController();
 const deleteUserController = new DeleteUserController();
+const updateUserController = new UpdateUserController();
 
 crudRoute.post(
     "/user",
@@ -24,7 +27,12 @@ crudRoute.get("/user/:id", findUserController.handle);
 
 crudRoute.get("/user", findAllUsersController.handle);
 
-// Rota do Update....
+crudRoute.patch(
+    "/user/:id",
+    updateUserValidation(),
+    handleValidation,
+    updateUserController.handle,
+);
 
 crudRoute.delete("/user/:id", deleteUserController.handle);
 
