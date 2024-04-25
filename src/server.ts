@@ -3,8 +3,8 @@ import Logger from './config/logs';
 import { app } from './app';
 import { PrismaService } from './repositories/implementations/prisma/prisma-client.service';
 
-const host = process.env.HOST_URL;
-const port = process.env.HOST_PORT;
+const host = process.env.HOST_URL ?? 'localhost';
+const port = process.env.HOST_PORT ?? 3000;
 
 app.listen(port, async () => {
     await PrismaService.connect();
