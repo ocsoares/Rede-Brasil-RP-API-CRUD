@@ -1,36 +1,36 @@
-import { OpenAPIV3 } from 'openapi-types';
+import { OpenAPIV3 } from "openapi-types";
 export const swaggerJSON: OpenAPIV3.Document = {
-    openapi: '3.0.0', // Update if necessary
+    openapi: "3.0.0", // Update if necessary
 
     info: {
-        version: '1.0.0', // Update if necessary
-        title: 'anytitle',
-        description: 'anydescription',
+        version: "1.0.0", // Update if necessary
+        title: "anytitle",
+        description: "anydescription",
         // termsOfService: 'Rota dos termos...',
         contact: {
-            email: 'anyemail',
+            email: "anyemail",
         },
     },
 
     paths: {
-        '/route': {
+        "/route": {
             // any_route
             post: {
                 // any_http_method
-                summary: 'Any sumary',
-                description: 'anydescription',
-                tags: ['Anytag'],
+                summary: "Any sumary",
+                description: "anydescription",
+                tags: ["Anytag"],
                 requestBody: {
-                    description: 'anydescription',
+                    description: "anydescription",
                     content: {
-                        'application/json': {
+                        "application/json": {
                             schema: {
-                                $ref: '#/components/schemas/AnyNameSchema',
+                                $ref: "#/components/schemas/AnyNameSchema",
                             },
                             examples: {
                                 register: {
                                     value: {
-                                        any_prop: 'any',
+                                        any_prop: "any",
                                     },
                                 },
                             },
@@ -40,15 +40,15 @@ export const swaggerJSON: OpenAPIV3.Document = {
                 responses: {
                     400: {
                         // any_http_error
-                        description: 'anydescription',
+                        description: "anydescription",
                     },
                     201: {
                         // any_http_error
-                        description: 'anydescription',
+                        description: "anydescription",
                         content: {
-                            'application/json': {
+                            "application/json": {
                                 schema: {
-                                    $ref: '#/components/schemas/AnyNameSchema',
+                                    $ref: "#/components/schemas/AnyNameSchema",
                                 },
                             },
                         },
@@ -56,7 +56,7 @@ export const swaggerJSON: OpenAPIV3.Document = {
                 },
             },
         },
-        '/other-route': {
+        "/other-route": {
             // any_route
             post: {
                 // any_http_method
@@ -74,27 +74,27 @@ export const swaggerJSON: OpenAPIV3.Document = {
     components: {
         schemas: {
             any_schema: {
-                type: 'object', // change if necessary
+                type: "object", // change if necessary
                 properties: {
                     any_prop: {
-                        type: 'string', // change if necessary
+                        type: "string", // change if necessary
                     },
                     another_prop: {
-                        type: 'string', // change if necessary
+                        type: "string", // change if necessary
                     },
                 },
             },
             another_schema: {
-                type: 'object', // change if necessary
+                type: "object", // change if necessary
                 // same as above
             },
         },
         securitySchemes: {
             bearerAuth: {
-                description: 'Autenticação nas rotas protegidas utilizando JWT',
-                type: 'http', // change if necessary
-                scheme: 'bearer',
-                bearerFormat: 'JWT',
+                description: "Autenticação nas rotas protegidas utilizando JWT",
+                type: "http", // change if necessary
+                scheme: "bearer",
+                bearerFormat: "JWT",
             },
         },
     },

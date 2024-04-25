@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { BaseException } from 'src/exceptions/base.exception';
+import { Request, Response } from "express";
+import { BaseException } from "src/exceptions/base.exception";
 
 export const exceptionHandlerMiddleware = (
     error: Error & Partial<BaseException>,
@@ -8,7 +8,7 @@ export const exceptionHandlerMiddleware = (
 ): Response => {
     const statusCode = error.statusCode ? error.statusCode : 500;
 
-    const message = error.statusCode ? error.message : 'Internal Server Error';
+    const message = error.statusCode ? error.message : "Internal Server Error";
 
     return res.status(statusCode).json({
         error: error.name,

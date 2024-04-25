@@ -25,7 +25,10 @@ export default tseslint.config(
         ignores: ['eslint.config.mjs', '/*.js', 'node_modules', 'dist'],
         rules: {
             'prefer-template': 'error',
-            'prettier/prettier': ['error', { endOfLine: 'auto' }],
+            'prettier/prettier': [
+                'error',
+                { endOfLine: 'auto', singleQuote: false },
+            ],
             'prefer-destructuring': [
                 'error',
                 {

@@ -1,4 +1,4 @@
-import winston, { format, transports } from 'winston';
+import winston, { format, transports } from "winston";
 
 const levels = {
     error: 0,
@@ -9,25 +9,25 @@ const levels = {
 };
 
 const checkEnvironment = () => {
-    if (process.env.NODE_ENV === 'production') {
-        return 'warn';
+    if (process.env.NODE_ENV === "production") {
+        return "warn";
     } else {
-        return 'debug';
+        return "debug";
     }
 };
 
 const colorsLog = {
-    error: 'red',
-    warn: 'yellow',
-    info: 'green',
-    http: 'magenta',
-    debug: 'white',
+    error: "red",
+    warn: "yellow",
+    info: "green",
+    http: "magenta",
+    debug: "white",
 };
 
 winston.addColors(colorsLog);
 
 const formatLog = format.combine(
-    format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+    format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
     format.colorize({ all: true }),
     format.printf(
         (info) => `${info.timestamp} - ${info.level}: ${info.message}`,
@@ -38,32 +38,32 @@ const transportsLog = [
     new transports.Console(),
 
     new transports.File({
-        filename: 'logs/error.log',
-        level: 'error',
+        filename: "logs/error.log",
+        level: "error",
     }),
 
     new transports.File({
-        filename: 'logs/warn.log',
-        level: 'warn',
+        filename: "logs/warn.log",
+        level: "warn",
     }),
 
     new transports.File({
-        filename: 'logs/info.log',
-        level: 'info',
+        filename: "logs/info.log",
+        level: "info",
     }),
 
     new transports.File({
-        filename: 'logs/http.log',
-        level: 'http',
+        filename: "logs/http.log",
+        level: "http",
     }),
 
     new transports.File({
-        filename: 'logs/debug.log',
-        level: 'debug',
+        filename: "logs/debug.log",
+        level: "debug",
     }),
 
     new transports.File({
-        filename: 'logs/all-logs.log',
+        filename: "logs/all-logs.log",
     }),
 ];
 

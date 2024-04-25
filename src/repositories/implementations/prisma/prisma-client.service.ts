@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 export class PrismaService {
     private static readonly prismaClient = new PrismaClient();

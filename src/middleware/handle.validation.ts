@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
-import { validationResult } from 'express-validator';
-import { StatusCodes } from 'http-status-codes';
+import { Request, Response, NextFunction } from "express";
+import { validationResult } from "express-validator";
+import { StatusCodes } from "http-status-codes";
 
 export const handleValidation = (
     req: Request,
