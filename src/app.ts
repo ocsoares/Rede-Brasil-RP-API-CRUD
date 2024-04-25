@@ -7,7 +7,7 @@ import * as swaggerUi from 'swagger-ui-express';
 import { pageNotFoundMiddleware } from './middleware/page-not-found.middleware';
 import 'express-async-errors';
 import helmet from 'helmet';
-import exampleRoute from './routes/example.route';
+import crudRoute from './routes/crud.route';
 
 const app: Express = express();
 
@@ -25,7 +25,7 @@ app.get('/', (req: Request, res: Response): void => {
 
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerJSON));
 
-app.use('/api/', exampleRoute);
+app.use('/api/', crudRoute);
 
 app.use(pageNotFoundMiddleware);
 
