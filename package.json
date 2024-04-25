@@ -20,7 +20,7 @@
     },
     "prisma": {
         "schema": "src/repositories/implementations/prisma/schema.prisma"
-      },
+    },
     "devDependencies": {
         "@eslint/js": "^9.1.1",
         "@jest/test-sequencer": "^29.7.0",
